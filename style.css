@@ -1,0 +1,99 @@
+:root {
+  --svg-color-1: #ff9fe5;
+  --svg-color-2: #117b2a;
+  --svg-color-placed: #383838;
+  --svg-default-color: #d3d4e9;
+}
+
+@keyframes btnClicked {
+  from, to {
+    scale: 1;
+  }
+  50% {
+    scale: 1.15;
+  }
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100dvh;
+  background: #020100;
+  font-family: Arial, sans-serif;
+  display: grid;
+  place-items: center;
+}
+
+#cont .ttt-turn {
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 1rem;
+  font-size: 150%;
+}
+#cont .ttt-turn h2 {
+  font-size: 2.5rem;
+}
+#cont .ttt-turn h2[data-ttt-player=circle] {
+  color: var(--svg-color-2);
+}
+#cont .ttt-turn h2[data-ttt-player=cross] {
+  color: var(--svg-color-1);
+}
+#cont .ttt-grid-wrap {
+  display: grid;
+  place-items: center;
+}
+#cont .ttt-grid-wrap .ttt-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  grid-template-rows: repeat(3, 100px);
+  gap: 1rem;
+}
+#cont .ttt-grid-wrap .ttt-grid .ttt-box {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  border-radius: 1rem;
+  background: #aaabbc;
+  border: none;
+  cursor: pointer;
+  position: relative;
+}
+#cont .ttt-grid-wrap .ttt-grid .ttt-box svg {
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, -50%) scale(2);
+  fill: var(--svg-default-color);
+  opacity: 0;
+  transition: fill 0.2s ease, opacity 0.5s ease;
+}
+#cont .ttt-grid-wrap .ttt-grid[data-ttt-current-player=circle] .ttt-box:is(:hover, :focus, :focus-within) svg.circle {
+  opacity: 1;
+}
+#cont .ttt-grid-wrap .ttt-grid[data-ttt-current-player=cross] .ttt-box:is(:hover, :focus, :focus-within) svg.cross {
+  opacity: 1;
+}
+#cont .ttt-grid-wrap .ttt-grid .ttt-box[data-ttt-played] {
+  animation: btnClicked 0.5s cubic-bezier(0, 1.11, 0.61, 0.98);
+}
+#cont .ttt-grid-wrap .ttt-grid .ttt-box[data-ttt-played=circle]:has(svg.circle) {
+  background: var(--svg-color-2);
+}
+#cont .ttt-grid-wrap .ttt-grid .ttt-box[data-ttt-played=circle]:has(svg.circle) .circle {
+  opacity: 1;
+  fill: var(--svg-color-placed);
+}
+#cont .ttt-grid-wrap .ttt-grid .ttt-box[data-ttt-played=cross]:has(svg.cross) {
+  background: var(--svg-color-1);
+}
+#cont .ttt-grid-wrap .ttt-grid .ttt-box[data-ttt-played=cross]:has(svg.cross) .cross {
+  opacity: 1;
+  fill: var(--svg-color-placed);
+}/*# sourceMappingURL=style.css.map */
