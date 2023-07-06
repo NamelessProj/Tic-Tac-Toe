@@ -31,7 +31,7 @@ class TicTacToe {
         var row = colRow.split('-')[1];
 
         this.moves++;
-        //console.log('MOVES: '+this.moves);
+        
         if (this.moves >= 5) this.checkVictory(column, row);
 
         if(this.moves >= 9) this.end(true);
