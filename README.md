@@ -4,4 +4,6 @@
 
 What a beautiful yet simple game.
 
+The first player is choosen by the Game.
+
 That's it.
